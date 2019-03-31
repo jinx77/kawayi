@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="fontico/iconfont.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+      	
+      	mui.plusReady(function(){
+			
+      		plus.navigator.setStatusBarStyle("light");
+      		plus.navigator.setStatusBarBackground("#C9394A");
+      	});
+    </script>
+</head>
+<body>
+	
+		<!-- 主页面标题 -->
+		<header class="mui-bar mui-bar-nav title">
+			<a id="user+" class=" mui-icon mui-icon-plusempty mui-pull-right"  style="color: white ; font-weight:bold;"></a>
+		    <h1 class="mui-title title-color" id="muxin_title"><b>kawayi</b></h1>
+		</header>
+		
+		<nav class="mui-bar mui-bar-tab">
+		    <a class="mui-tab-item mui-active" tabindex="0">
+		        <span class="mui-icon mui-icon-weixin"></span>
+		        <span class="mui-tab-label">聊天</span>
+		    </a>
+		    <a class="mui-tab-item" tabindex="1">
+		        <span class="mui-icon mui-icon-contact"></span>
+		        <span class="mui-tab-label">通讯录</span>
+		    </a>
+		    <a class="mui-tab-item" tabindex="2">
+		        <span class="mui-icon mui-icon-paperplane"></span>
+		        <span class="mui-tab-label">发现</span>
+		    </a>
+		    <a class="mui-tab-item" tabindex="3">
+		        <span class="mui-icon mui-icon-person"></span>
+		        <span class="mui-tab-label">我</span>
+		    </a>
+		</nav>
+		
+		<div id="popover" class="mui-popover" style="width: 200px; text-align:center; background-color: #0062CC;">
+  <ul class="mui-table-view">
+     <li class="">添加好友</li>
+    <li class="mui-table-view-cell"><a href="#">Item2</a></li>
+    <li class="mui-table-view-cell"><a href="#">Item3</a></li>
+    <li class="mui-table-view-cell"><a href="#">Item4</a></li>
+    <li class="mui-table-view-cell"><a href="#">Item5</a></li>
+  </ul>
+</div>
+
+	 <script type="text/javascript" charset="utf-8">
+	  	
+	  	var liaoArray=[{
+				pageId: "kawayi-chatlist.html",
+				pageUrl: "kawayi-chatlist.html"
+			},
+			{
+				pageId: "kawayi-contact.html",
+				pageUrl: "kawayi-contact.html"
+			},
+			{
+				pageId: "kawayi-discover.html",
+				pageUrl: "kawayi-discover.html"
+			},
+			{
+				pageId: "kawayi-me.html",
+				pageUrl: "kawayi-me.html"
+			}
+			
+			
+		]
+		var kwyStyle = {
+			top: "44px",
+			bottom: "50px"
+		}
+	  	mui.plusReady(function(){
+			
+			
+			
+			
+			
+			var jia=document.getElementById("user+");
+			
+			jia.onclick=function(){
+				
+			alert("此功能暂未开发");
+			}
+		
+	  	/* 	var ltck= plus.webview.create( "kawayi-chatlist.html", "kawayi-chatlist.html",kwyStyle );
+			var txlck= plus.webview.create( "kawayi-contact.html", "kawayi-contact.html",kwyStyle );
+			var ltck= plus.webview.create( "kawayi-discover.html", "kawayi-discover.html",kwyStyle );
+			var txlck= plus.webview.create( "kawayi-me.html", "kawayi-me.html",kwyStyle );
+			 */
+			mui.back=function(){
+				return false;	
+			}
+			
+			
+			// 获取当前的webview对象
+			var indexWebview = plus.webview.currentWebview();
+			// 向当前的主页webview追加子页的4张webview对象
+			for(i=0;i<liaoArray.length;i++){
+				var kwyck= plus.webview.create( liaoArray[i].pageUrl, liaoArray[i].pageId,kwyStyle );
+				// 隐藏窗口
+				kwyck.hide();
+				// 追加每一个子页面到当前主页面
+				indexWebview.append(kwyck);
+			}
+			//默认显示的页面
+			plus.webview.show(liaoArray[0].pageUrl);
+			// 批量绑定tap事件，展示不同的页面
+			mui(".mui-bar-tab").on('tap','a',function(){
+				
+				var x=this.getAttribute("tabindex");
+				// 显示点击的tab选项所对应的页面
+				plus.webview.show(liaoArray[x].pageUrl);
+				// 隐藏其他的不需要的页面
+				 for (var i = 0 ; i < liaoArray.length ; i ++) {
+					if (i != x) {
+					 	plus.webview.hide(liaoArray[i].pageId, "fade-out", 200); 
+					}
+				} 
+			}) 
+			
+			
+			
+			// 延时加载
+			setTimeout("initData()", "1000");
+			
+	  	});
+		
+		// 预加载
+		function initData() {
+			var kawayi_chatlist = plus.webview.getWebviewById("kawayi-chatlist.html");
+			mui.fire(kawayi_chatlist, "refresh");
+			
+			var kawayi_me = plus.webview.getWebviewById("kawayi-me.html");
+			mui.fire(kawayi_me, "refresh");
+			
+			var contact = plus.webview.getWebviewById("kawayi-contact.html");
+			mui.fire(contact, "refresh");
+		} 
+	</script>
+	
+</body>
+</html>

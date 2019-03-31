@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="fontico/iconfont.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+      	
+      	mui.plusReady(function(){
+			
+      		plus.navigator.setStatusBarStyle("light");
+      		plus.navigator.setStatusBarBackground("#C9394A");
+      	});
+    </script>
+</head>
+<body>
+	
+		<!-- 主页面标题 -->
+		<header class="mui-bar mui-bar-nav title">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: white;"></a>
+			<a id="addfriend" class="mui-icon mui-icon-right-nav mui-pull-right" style="color: white; font-size:30px; line-height: 25px;">+</a>
+		    <h1 class="mui-title title-color" id="muxin_title"><b>群聊</b></h1>
+		</header>
+		<div class="mui-content">
+		<ul class="mui-table-view" id="ul_list">
+   <!-- <li class="mui-table-view-cell mui-media">
+        <a href="javascript:;">
+            <img class="mui-media-object mui-pull-left" src="../images/shuijiao.jpg">
+            <div class="mui-media-body">
+                群聊1群
+                <p class='mui-ellipsis'>你还在么</p>
+            </div>
+        </a>
+    </li>
+    <li class="mui-table-view-cell mui-media">
+        <a href="javascript:;">
+            <img class="mui-media-object mui-pull-left" src="../images/muwu.jpg">
+            <div class="mui-media-body">
+                群聊2群
+                <p class='mui-ellipsis'>想要这样一间小木屋</p>
+            </div>
+        </a>
+    </li> -->
+    
+</ul>
+		</div>
+  
+	
+		
+		
+      <script type="text/javascript" src="js/app.js" ></script>
+	 <script type="text/javascript" charset="utf-8">
+		
+		mui.plusReady(function () {
+			initGroupchatList();
+			var me=app.getUserGlobalInfo();
+			
+			
+	//获取群列表			
+	mui.ajax(app.serverUrl + '/groupchat/myGroupChatList?userId='+me.userId,{
+	data:{},
+	dataType:'json',//服务器返回json格式数据
+	type:'post',//HTTP请求类型
+	timeout:10000,//超时时间设置为10秒；
+	headers:{'Content-Type':'application/json'},	              
+	success:function(data){
+		if(data.status==200){
+			
+			var groupchatlist=data.data;
+			//保存群信息列表
+			app.setGroupchatList(groupchatlist);
+			initGroupchatList();
+		}
+	},
+	
+});
+		})
+			
+			//渲染群列表
+			function initGroupchatList(){
+				//获取本地群信息
+				var groupchatlist=app.getGroupchatList();
+				console.log("本地群列表"+JSON.stringify(groupchatlist));
+				if (groupchatlist!=null) {
+				var inithtml="";
+				for(var i=0;i<groupchatlist.length;i++){
+					var groupchat=groupchatlist[i];
+				var	html='<li class="mui-table-view-cell mui-media">'+
+						    '<a href="javascript:;">'+
+						        '<img class="mui-media-object mui-pull-left" src="image/givememoney.png">'+
+						        '<div class="mui-media-body" style="font-size:20px">'+
+						           groupchat.groupchatName+
+						        '</div>'+
+						    '</a>'+
+						'</li>';
+					
+					inithtml=inithtml+html;	
+				}
+				console.log("本地群列表标签"+inithtml);
+				var ul_list=document.getElementById("ul_list");
+				ul_list.innerHTML=inithtml;
+
+			}
+				
+			}
+	</script>
+	
+</body>
+</html>
