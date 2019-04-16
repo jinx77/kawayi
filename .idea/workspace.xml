@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="63dcc436-6d51-4221-ae7c-5d020de0d5eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/xxoo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/修改了文件1.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/修改了文件11.patch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dd.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ddc.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/xx.md" beforeDir="false" />
-    </list>
+    <list default="true" id="63dcc436-6d51-4221-ae7c-5d020de0d5eb" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +39,11 @@
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -122,7 +116,7 @@
       <workItem from="1555341224251" duration="112000" />
       <workItem from="1555341363831" duration="106000" />
       <workItem from="1555341494797" duration="2017000" />
-      <workItem from="1555420670305" duration="4365000" />
+      <workItem from="1555420670305" duration="4636000" />
     </task>
     <task id="LOCAL-00001" summary="什么鬼">
       <created>1555425563587</created>
@@ -166,11 +160,25 @@
       <option name="project" value="LOCAL" />
       <updated>1555427759493</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="修改了文件11111">
+      <created>1555427824346</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1555427824346</updated>
+    </task>
+    <task id="LOCAL-00008" summary="nnn">
+      <created>1555427939637</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1555427939637</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7261000" />
+    <option name="totallyTimeSpent" value="7532000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="226" y="40" width="1400" height="1000" extended-state="0" />
@@ -215,7 +223,9 @@
     <MESSAGE value="修改了文件" />
     <MESSAGE value="修改了文件1" />
     <MESSAGE value="修改了文件11" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了文件11" />
+    <MESSAGE value="修改了文件11111" />
+    <MESSAGE value="nnn" />
+    <option name="LAST_COMMIT_MESSAGE" value="nnn" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/前端/kawayi-chatlist.html">
